@@ -1,6 +1,6 @@
 {
   "name": "@fly/container-server",
-  "version": "0.55.2",
+  "version": "0.55.5",
   "description": "fly container server",
   "homepage": "https://github.com/superfly/fly#readme",
   "license": "Apache-2.0",

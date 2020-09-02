@@ -43,7 +43,7 @@ export class ContainerAppStore {
       version: 0,
       source,
       sourceMap,
-      sourceHash: "",
+      sourceHash: "container-app-bundle",
       config: rawConfig.config,
       files: rawConfig.files,
       secrets: findSecrets(rawConfig.config)

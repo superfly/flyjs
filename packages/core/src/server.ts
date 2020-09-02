@@ -48,6 +48,7 @@ export interface ServerOptions {
   bridgeOptions?: BridgeOptions
   inspect?: boolean
   monitorFrequency?: number
+  memoryLimit?: number
 }
 
 export interface RequestTask {
@@ -69,7 +70,8 @@ export class Server extends http.Server {
     this.bridge = new Bridge(options.bridgeOptions)
     this.runtime = new LocalRuntime(this.appStore.app, this.bridge, {
       inspect: !!options.inspect,
-      monitorFrequency: options.monitorFrequency
+      monitorFrequency: options.monitorFrequency,
+      memoryLimit: options.memoryLimit
     })
 
     console.log("Cache Store Adapter: ", this.bridge.cacheStore.constructor.name)
@@ -136,6 +138,10 @@ export class Server extends http.Server {
           start
         )}`
       )
+      if (this.runtime.isolate.isDisposed) {
+        log.error("isolate was disposed, exiting")
+        process.exit(1)
+      }
     }
   }
 }

@@ -11,9 +11,10 @@ import { inspect } from "util"
 export interface LocalRuntimeOptions {
   inspect?: boolean
   monitorFrequency?: number
+  memoryLimit?: number
 }
 
-const LOCAL_RUNTIME_DEFAULTS: LocalRuntimeOptions = { monitorFrequency: 5000, inspect: false }
+const LOCAL_RUNTIME_DEFAULTS: LocalRuntimeOptions = { monitorFrequency: 5000, inspect: false, memoryLimit: 128 }
 
 export class LocalRuntime implements Runtime {
   public isolate: ivm.Isolate
@@ -27,14 +28,13 @@ export class LocalRuntime implements Runtime {
   constructor(public app: App, public bridge: Bridge, options: LocalRuntimeOptions = {}) {
     // if (!v8Env.snapshot)
     //  throw new Error("base snapshot is not ready, maybe you need to compile v8env?")
-
-    console.log("new runtime, app:", app.id, app.sourceHash)
-
     this.options = Object.assign({}, LOCAL_RUNTIME_DEFAULTS, options)
+
+    console.log("new runtime", { app: app.id, sourceHash: app.sourceHash, memoryLimit: options.memoryLimit })
 
     this.isolate = new ivm.Isolate({
       snapshot: v8Env.snapshot,
-      memoryLimit: 128,
+      memoryLimit: this.options.memoryLimit,
       inspector: this.options.inspect
     })
 
@@ -75,7 +75,7 @@ export class LocalRuntime implements Runtime {
           `Runtime heap: ${(this.isolate.getHeapStatisticsSync().total_heap_size / (1024 * 1024)).toFixed(2)} MB`
         )
       }
-    }, 5000)
+    }, this.options.monitorFrequency)
   }
 
   private resetContext(current?: ivm.Context) {

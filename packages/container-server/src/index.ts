@@ -25,11 +25,18 @@ if (process.env.FLY_REDIS_CACHE_URL) {
   bridgeOptions.cacheStore = new RedisCacheStore(process.env.FLY_REDIS_CACHE_URL)
 }
 
+let memoryLimit = 128
+if (process.env.FLY_MEMORY_LIMIT) {
+  memoryLimit = parseInt(process.env.FLY_MEMORY_LIMIT, 10)
+}
+
 const server = new Server({
   appStore,
   env,
   inspect: false,
-  bridgeOptions
+  bridgeOptions,
+  memoryLimit,
+  monitorFrequency: 30000
 })
 
 server.listen(port)

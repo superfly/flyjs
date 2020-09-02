@@ -25,7 +25,7 @@ if (process.env.FLY_REDIS_CACHE_URL) {
   bridgeOptions.cacheStore = new RedisCacheStore(process.env.FLY_REDIS_CACHE_URL)
 }
 
-let memoryLimit = 128
+let memoryLimit = undefined
 if (process.env.FLY_MEMORY_LIMIT) {
   memoryLimit = parseInt(process.env.FLY_MEMORY_LIMIT, 10)
 }

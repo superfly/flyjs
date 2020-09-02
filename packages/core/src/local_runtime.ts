@@ -28,9 +28,12 @@ export class LocalRuntime implements Runtime {
   constructor(public app: App, public bridge: Bridge, options: LocalRuntimeOptions = {}) {
     // if (!v8Env.snapshot)
     //  throw new Error("base snapshot is not ready, maybe you need to compile v8env?")
+    Object.keys(options).forEach(
+      key => ((options as any)[key] == null || (options as any)[key] == null) && delete (options as any)[key]
+    )
     this.options = Object.assign({}, LOCAL_RUNTIME_DEFAULTS, options)
 
-    console.log("new runtime", { app: app.id, sourceHash: app.sourceHash, memoryLimit: options.memoryLimit })
+    console.log("new runtime", { app: app.id, sourceHash: app.sourceHash, memoryLimit: this.options.memoryLimit })
 
     this.isolate = new ivm.Isolate({
       snapshot: v8Env.snapshot,

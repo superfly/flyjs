@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:12 AS builder
+FROM mhart/alpine-node:14 AS builder
 
 RUN apk add python make build-base libexecinfo-dev libpng-dev bash curl libtool lcms2-dev autoconf automake musl-dev nasm git
 RUN curl -sfL https://install.goreleaser.com/github.com/tj/node-prune.sh | bash -s -- -b /usr/local/bin

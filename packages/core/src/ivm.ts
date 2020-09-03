@@ -1,9 +1,10 @@
-import * as ivm from "isolated-vm"
+import * as ivm from "isolated-vm";
 
-export { ivm }
+export { ivm };
 
-export type IvmCallback = ivm.Reference<() => void>
+export type IvmCallback = ivm.Reference<() => void>;
 
 export function dispatchError(cb: IvmCallback, err: string | Error) {
-  cb.applyIgnored(null, [(err && err.toString()) || "unknown error"])
+  // @ts-ignore comment
+  cb.applyIgnored(null, [(err && err.toString()) || "unknown error"]);
 }

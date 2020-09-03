@@ -5,7 +5,7 @@ RUN node-prune
 
 FROM mhart/alpine-node:12
 
-RUN apk add python make build-base libexecinfo-dev libpng-dev bash curl libtool lcms2-dev autoconf automake musl-dev nasm
+RUN apk add python make build-base libexecinfo-dev libpng-dev bash curl libtool lcms2-dev autoconf automake musl-dev nasm git
 
 WORKDIR /fly
 

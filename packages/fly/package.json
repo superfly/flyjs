@@ -12,7 +12,8 @@
     "bin/"
   ],
   "bin": {
-    "fly": "./bin/fly.js"
+    "fly": "./bin/fly.js",
+    "flyjs": "./bin/fly.js"
   },
   "scripts": {
     "clean": "rm -rf README.md",

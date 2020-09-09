@@ -12,7 +12,6 @@
     "bin/"
   ],
   "bin": {
-    "fly": "./bin/fly.js",
     "flyjs": "./bin/fly.js"
   },
   "scripts": {

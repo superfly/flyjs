@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.56.0](https://github.com/superfly/fly/compare/v0.55.8-pre.1...v0.56.0) (2020-09-09)
+
+**Note:** Version bump only for package @fly/container-server
+
+
+
+
+
 ## [0.55.8-pre.0](https://github.com/superfly/fly/compare/v0.55.7...v0.55.8-pre.0) (2020-09-03)
 
 **Note:** Version bump only for package @fly/container-server

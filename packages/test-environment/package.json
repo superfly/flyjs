@@ -22,7 +22,7 @@
     "execa": "^1.0.0",
     "jest": "^24",
     "jest-environment-node": "^24",
-    "node-fetch": "2.2.0",
+    "node-fetch": "2.6.1",
     "ts-jest": "^24"
   }
 }

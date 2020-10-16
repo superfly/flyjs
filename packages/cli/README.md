@@ -1,15 +1,15 @@
 # Fly `cli`
 
 <!-- commands -->
-* [`fly help [COMMAND]`](#fly-help-command)
+* [`flyjs help [COMMAND]`](#flyjs-help-command)
 
-## `fly help [COMMAND]`
+## `flyjs help [COMMAND]`
 
-display help for fly
+display help for flyjs
 
 ```
 USAGE
-  $ fly help [COMMAND]
+  $ flyjs help [COMMAND]
 
 ARGUMENTS
   COMMAND  command to show help for

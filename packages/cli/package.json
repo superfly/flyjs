@@ -15,7 +15,7 @@
     "/oclif.manifest.json"
   ],
   "bin": {
-    "fly": "./bin/run"
+    "flyjs": "./bin/run"
   },
   "repository": {
     "type": "git",
